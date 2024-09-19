@@ -1,6 +1,7 @@
 name: modern_player
 description: Enhance your video playback experience with modern_player. A feature-rich Flutter package for flutter_vlc_player.
 version: 0.1.0
+publish_to: none
 homepage: https://github.com/itsSagarBro/modern_player
 
 environment:
@@ -11,10 +12,13 @@ dependencies:
   flutter:
     sdk: flutter
   visibility_detector: ^0.4.0+2
-  screen_brightness: ^1.0.1
-  flutter_vlc_player: ^7.4.0
-  youtube_explode_dart: ^2.0.2
-  wakelock_plus: ^1.1.4
+  screen_brightness:
+    git: https://github.com/kumsumit/screen_brightness.git  
+  flutter_vlc_player:
+    git: https://github.com/kumsumit/flutter_vlc_player.git
+  youtube_explode_dart: ^2.2.1
+  wakelock_plus:
+    git: https://github.com/kumsumit/wakelock_plus.git
 
 dev_dependencies:
   flutter_test:
