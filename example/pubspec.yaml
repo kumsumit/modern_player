@@ -11,14 +11,15 @@ dependencies:
     sdk: flutter
   modern_player:
     path: ../
+  permission_handler:
+    git: https://github.com/kumsumit/permission_handler.git  
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^4.0.0
 
 flutter:
   uses-material-design: true
-
   # assets:
-  #   - assets/sample.mp4
+  #   - assets/iso.mp4

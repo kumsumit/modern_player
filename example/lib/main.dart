@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:modern_player/modern_player.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 void main() {
   runApp(const MyApp());
@@ -73,6 +74,12 @@ class _MyHomePageState extends State<MyHomePage> {
       ]);
 
   @override
+  void initState() {
+    super.initState();
+      Future.delayed( Duration.zero ,()async{await Permission.storage.request();});
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -83,17 +90,28 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            SizedBox(
-              height: 250,
-              child: ModernPlayer.createPlayer(
-                defaultSelectionOptions: ModernPlayerDefaultSelectionOptions(
-                    defaultQualitySelectors: [DefaultSelectorLabel('360p')]),
-                video: ModernPlayerVideo.youtubeWithUrl(
-                    url:
-                        'https://www.youtube.com/watch?v=vEHeI_wBzu0&ab_channel=UntitledStudio',
-                    fetchQualities: true),
-              ),
-            )
+            SizedBox(height:200,
+              child: ModernPlayer.createPlayer(video:
+               ModernPlayerVideo.single(source: "/storage/emulated/0/Download/208814_480p.mp4",
+                sourceType: ModernPlayerSourceType.file))
+            ),
+            
+            // SizedBox(height:200,
+            //   child: ModernPlayer.createPlayer(video:
+            //    ModernPlayerVideo.single(source: "assets/iso.mp4",
+            //     sourceType: ModernPlayerSourceType.asset))
+            // ),
+            // SizedBox(
+            //   height: 250,
+            //   child: ModernPlayer.createPlayer(
+            //     defaultSelectionOptions: ModernPlayerDefaultSelectionOptions(
+            //         defaultQualitySelectors: [DefaultSelectorLabel('360p')]),
+            //     video: ModernPlayerVideo.youtubeWithUrl(
+            //         url:
+            //             'https://www.youtube.com/watch?v=acGN6OF-k8U',
+            //         fetchQualities: true),
+            //   ),
+            // )
           ],
         ),
       ),
